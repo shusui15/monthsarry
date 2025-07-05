@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 2nd Monthsary!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to left,
+        #9fbefc,
+        #abc4ff,
+        #b6ccfe,
+        #c1d3fe,
+        #ccdbfd);
+      font-family: 'Segoe UI', sans-serif;
+      color: #5c2c2c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      user-select: none;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0px 5px 15px white;
+      width: 90%;
+      max-width: 550px;
+      animation: pop 1s ease-out;
+    }
+
+    h1 {
+      color: #ff69b4;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+
+    .rating {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      flex-direction: row-reverse;
+    }
+
+    .rating input {
+      display: none;
+    }
+
+    .rating label {
+      font-size: 32px;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .rating label:hover,
+    .rating label:hover ~ label,
+    .rating input:checked ~ label {
+      color: red;
+    }
+
+    .heart {
+      font-size: 40px;
+      color: red;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes pop {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff69b4;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
+    .final-message {
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px dashed #ff69b4;
+      font-style: italic;
+      color: #c71585;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>HAPPY 2ND MONTHSARRY!</h1>
+    <div class="heart">❤</div>
+
+    <p id="message">
+      It's been 2 months na po!!<br>
+      super fast ng panahon still nothing changed,<br>
+      mataray pa din ikaw simula nung nakilala kita hehe...
+    </p>
+
+    <form class="rating">
+      <input type="radio" name="heart" id="heart5">
+      <label for="heart5">❤</label>
+
+      <input type="radio" name="heart" id="heart4">
+      <label for="heart4">❤</label>
+
+      <input type="radio" name="heart" id="heart3">
+      <label for="heart3">❤</label>
+
+      <input type="radio" name="heart" id="heart2">
+      <label for="heart2">❤</label>
+
+      <input type="radio" name="heart" id="heart1">
+      <label for="heart1">❤</label>
+    </form>
+
+    <button onclick="changeMessage()">NEXT</button>
+  </div>
+
+  <script>
+    let messageIndex = 0;
+    const messages = [
+      "It's been 2 months na po!!<br>super fast ng panahon still nothing changed,<br>mataray pa din ikaw simula nung nakilala kita hehe...",
+      "di mo ako pinapansin nung nanliligaw ako sayo,<br>but now who you sila sakin MWEHEHE..<br>i'm so so lucky talaga dami dami nila ako pa talaga<br>YES GALING TAINUH!!",
+      "hirap tayo nung 1st month kasi medyo ldr, :<<br>i really want to hold yours hand talaga non,<br>kung natagos lang talaga kamay ko sa screen eh.",
+      "2 months have past, and still sobrang saya ko with you <br>kahit nag-aaway minsan, we still choose to stay.",
+      "i always wish na mag-stay ka kahit may misunderstading tayo,<br> never ako gagawa ng pwede ikakahiwalay natin and sa ikaw din,<br> iloveyou I REALLY REALLY LOVE YOU LABLAB KOOOO."
+    ];
+
+    function changeMessage() {
+      messageIndex++;
+      if (messageIndex < messages.length) {
+        document.getElementById("message").innerHTML = messages[messageIndex];
+      }
+      if (messageIndex === messages.length - 1) {
+        const btn = document.querySelector("button");
+        btn.disabled = true;
+        btn.innerText = "IWABYUUU ❤️";
+        btn.style.opacity = "0.6";
+        btn.style.cursor = "not-allowed";
+      }
+    }
+  </script>
+
+</body>
+</html>
